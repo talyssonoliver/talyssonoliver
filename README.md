@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/profile-header.svg" alt="Talysson Oliveira — Full-stack product engineer in London" width="100%" />
+  <img src="./assets/profile-header-aurora-v2.svg" alt="Talysson Oliveira — Full-stack product engineer in London" width="100%" />
 </p>
 
 <p align="center">
