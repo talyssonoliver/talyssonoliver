@@ -40,18 +40,18 @@ jobs:
               raise SystemExit(0)
 
           parts = sorted(payload_dir.glob('part-*.b64'))
-          if len(parts) != 8:
-              raise SystemExit(f'Expected 8 payload parts, found {len(parts)}')
+          if len(parts) != 5:
+              raise SystemExit(f'Expected 5 payload parts, found {len(parts)}')
 
           payload = ''.join(part.read_text(encoding='ascii').strip() for part in parts)
           source_bytes = base64.b64decode(payload, validate=True)
 
-          expected_sha256 = 'ea8ab6f9639b886f0f8280dbb0976aca51448f688dbbd3995a76618b17152a73'
+          expected_sha256 = 'ddeaf519b0affeed0b71f25c7ce429344daf140ad1b14f27cc33964f7bddcccc'
           actual_sha256 = hashlib.sha256(source_bytes).hexdigest()
           if actual_sha256 != expected_sha256:
               raise SystemExit(f'SHA-256 mismatch: {actual_sha256}')
 
-          source_path = payload_dir / 'source.jpg'
+          source_path = payload_dir / 'source.webp'
           source_path.write_bytes(source_bytes)
           target = Path('assets/profile-header-rgb-v4.png')
 
