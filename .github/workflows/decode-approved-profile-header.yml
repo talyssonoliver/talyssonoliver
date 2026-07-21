@@ -1,7 +1,7 @@
 name: Decode approved profile header
 
 on:
-  issues:
+  pull_request:
     types: [opened]
 
 permissions:
@@ -9,7 +9,9 @@ permissions:
 
 jobs:
   decode:
-    if: github.event.issue.title == 'Finalize approved profile header PNG'
+    if: >-
+      github.event.pull_request.title == 'fix: publish approved profile header PNG' &&
+      github.event.pull_request.head.ref == 'fix/publish-real-header-png-final'
     runs-on: ubuntu-latest
     steps:
       - name: Check out the prepared header branch
