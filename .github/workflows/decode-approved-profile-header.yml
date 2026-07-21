@@ -2,7 +2,7 @@ name: Decode approved profile header
 
 on:
   pull_request:
-    types: [opened]
+    types: [opened, synchronize]
 
 permissions:
   contents: write
@@ -27,10 +27,19 @@ jobs:
           from pathlib import Path
           import base64
 
+          png_signature = b'\x89PNG\r\n\x1a\n'
           image_path = Path('assets/profile-header.png')
-          payload = image_path.read_text(encoding='utf-8').strip()
-          image = base64.b64decode(payload, validate=True)
-          if not image.startswith(b'\x89PNG\r\n\x1a\n'):
+          source = image_path.read_bytes()
+
+          if source.startswith(png_signature):
+              image = source
+          else:
+              payload = b''.join(source.split())
+              payload += b'=' * (-len(payload) % 4)
+              image = base64.b64decode(payload, validate=False)
+
+          print(f'payload bytes={len(source)} decoded bytes={len(image)} prefix={image[:8]!r}')
+          if not image.startswith(png_signature):
               raise SystemExit('Decoded asset is not a valid PNG')
           image_path.write_bytes(image)
 
@@ -38,13 +47,18 @@ jobs:
           readme = readme_path.read_text(encoding='utf-8')
           old = './assets/profile-header-aurora-v2.svg'
           new = './assets/profile-header.png'
-          if old not in readme:
-              raise SystemExit('Expected current header reference was not found')
-          readme_path.write_text(readme.replace(old, new, 1), encoding='utf-8')
+          if old in readme:
+              readme = readme.replace(old, new, 1)
+          elif new not in readme:
+              raise SystemExit('No recognised profile-header reference was found')
+          readme_path.write_text(readme, encoding='utf-8')
 
-          stale_workflow = Path('.github/workflows/finalize-profile-header.yml')
-          if stale_workflow.exists():
-              stale_workflow.unlink()
+          for stale in (
+              Path('.github/workflows/finalize-profile-header.yml'),
+              Path('.profile-header-retry'),
+          ):
+              if stale.exists():
+                  stale.unlink()
           PY
 
       - name: Commit the clean PNG result
@@ -53,5 +67,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
+          if git diff --cached --quiet; then
+            echo "No branch changes required"
+            exit 0
+          fi
           git commit -m "fix: publish approved profile header PNG"
           git push origin HEAD:fix/publish-real-header-png-final
