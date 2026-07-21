@@ -1,0 +1,47 @@
+name: Rebuild profile header
+
+on:
+  push:
+    branches:
+      - fix/use-real-approved-header-v3
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/use-real-approved-header-v3
+          fetch-depth: 0
+
+      - name: Rebuild PNG from chunks
+        shell: bash
+        run: |
+          mkdir -p assets
+          cat .header-upload/part-* | base64 --decode > assets/profile-header.png
+          file assets/profile-header.png
+          test "$(sha256sum assets/profile-header.png | cut -d' ' -f1)" = "072286a56e3b5a252bd7fc617a1bec7a61e05f5dc990694e0ae8ff3cc155047e"
+
+      - name: Update README reference
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('README.md')
+          text = p.read_text()
+          text = text.replace('./assets/profile-header-aurora-v2.svg', './assets/profile-header.png')
+          p.write_text(text)
+          PY
+
+      - name: Commit generated asset
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/profile-header.png README.md
+          git commit -m "fix: use approved PNG profile header"
+          git push origin HEAD:fix/use-real-approved-header-v3
