@@ -40,13 +40,13 @@ jobs:
               raise SystemExit(0)
 
           parts = sorted(payload_dir.glob('part-*.b64'))
-          if len(parts) != 14:
-              raise SystemExit(f'Expected 14 payload parts, found {len(parts)}')
+          if len(parts) != 8:
+              raise SystemExit(f'Expected 8 payload parts, found {len(parts)}')
 
           payload = ''.join(part.read_text(encoding='ascii').strip() for part in parts)
           source_bytes = base64.b64decode(payload, validate=True)
 
-          expected_sha256 = '54c8d75087e7fa113af87b164100b9b909b3261f1d80a82aa4f2d0ad2cd86d32'
+          expected_sha256 = 'ea8ab6f9639b886f0f8280dbb0976aca51448f688dbbd3995a76618b17152a73'
           actual_sha256 = hashlib.sha256(source_bytes).hexdigest()
           if actual_sha256 != expected_sha256:
               raise SystemExit(f'SHA-256 mismatch: {actual_sha256}')
