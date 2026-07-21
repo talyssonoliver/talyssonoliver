@@ -7,9 +7,11 @@
   <img src="https://img.shields.io/badge/Open%20to-Full--Stack%20%2F%20Product%20roles-16A34A?style=flat-square" alt="Open to Full-Stack and Product Engineer roles" />
 </p>
 
+<p align="center"><strong>London · Right to work in the UK · No sponsorship required</strong></p>
+
 ## Hello
 
-I’m a Brazilian software engineer based in London and the founder of [Leangency](https://leangency.com).
+I’m a Full-Stack / Product Engineer based in London and the founder of [Leangency](https://leangency.com).
 
 I like taking a product from the awkward early stage—when the requirements are still fuzzy and the workflows live in people’s heads—and turning it into software that is clear, testable and useful. Most of my work sits between **product engineering**, **full-stack TypeScript** and **workflow automation**.
 
