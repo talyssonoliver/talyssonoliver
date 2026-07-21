@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="./assets/profile-header.png" alt="Talysson Oliveira — Full-stack product engineer in London" width="100%" />
-</p>
+![Talysson Oliveira — Full-stack product engineer in London](https://raw.githubusercontent.com/talyssonoliver/talyssonoliver/main/assets/profile-header.png?v=20260721-2)
 
 <p align="center">
   <a href="https://leangency.com"><img src="https://img.shields.io/badge/Leangency-founder-111827?style=flat-square&logo=vercel&logoColor=white" alt="Leangency" /></a>
