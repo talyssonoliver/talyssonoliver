@@ -1,0 +1,39 @@
+name: Build approved profile header
+
+on:
+  push:
+    branches:
+      - fix/use-real-approved-header-v3
+    paths:
+      - .header-upload/READY
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    if: github.event.head_commit.message == 'chore: trigger approved header build'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: fix/use-real-approved-header-v3
+
+      - name: Reconstruct and verify PNG
+        shell: bash
+        run: |
+          cat .header-upload/part-* | tr -d '\n\r' | base64 --decode > assets/profile-header.png
+          test "$(sha256sum assets/profile-header.png | cut -d' ' -f1)" = "7c9039aa9fcd97ed2c59e9efb69435db13559de1cdee2177ff423131dcafceb2"
+          file assets/profile-header.png | grep -F "PNG image data, 720 x 240"
+          sed -i 's#./assets/profile-header-aurora-v2.svg#./assets/profile-header.png#' README.md
+          rm -rf .header-upload
+
+      - name: Commit the real approved asset
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md assets/profile-header.png .header-upload
+          git commit -m "fix: use approved PNG profile header"
+          git push origin HEAD:fix/use-real-approved-header-v3
