@@ -1,4 +1,4 @@
-name: Re-encode profile header as RGB PNG
+name: Publish verified RGB profile header
 
 on:
   pull_request:
@@ -8,7 +8,7 @@ permissions:
   contents: write
 
 jobs:
-  reencode:
+  publish:
     if: >-
       github.event.pull_request.title == 'fix: publish RGB profile header' &&
       github.event.pull_request.head.ref == 'fix/profile-header-rgb-v3'
@@ -20,53 +20,73 @@ jobs:
           ref: fix/profile-header-rgb-v3
           fetch-depth: 0
 
-      - name: Install Pillow
-        run: python -m pip install --disable-pip-version-check pillow
-
-      - name: Re-encode existing artwork as true-colour PNG
+      - name: Assemble and verify the known-good RGB PNG
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
-          from PIL import Image
+          import base64
+          import hashlib
+          import shutil
+          import struct
 
-          source = Path('assets/profile-header.png')
-          target = Path('assets/profile-header-rgb-v3.png')
+          payload_dir = Path('.profile-header-payload')
+          ready = payload_dir / 'READY'
+          if not ready.exists():
+              print('Payload is not complete yet; nothing to publish.')
+              raise SystemExit(0)
 
-          with Image.open(source) as image:
-              rgb = image.convert('RGB')
-              rgb.save(target, format='PNG', optimize=True, compress_level=9)
+          parts = sorted(payload_dir.glob('part-*.b64'))
+          if len(parts) != 7:
+              raise SystemExit(f'Expected 7 payload parts, found {len(parts)}')
 
-          with Image.open(target) as check:
-              if check.mode != 'RGB':
-                  raise SystemExit(f'Unexpected output mode: {check.mode}')
-              if check.size != (900, 300):
-                  raise SystemExit(f'Unexpected output size: {check.size}')
-              print(f'output mode={check.mode} size={check.size} bytes={target.stat().st_size}')
+          payload = ''.join(part.read_text(encoding='ascii').strip() for part in parts)
+          image = base64.b64decode(payload, validate=True)
+
+          expected_sha256 = '3d95efcefb4d6b4434b03baa19c5b42b7d0a3e6c5416bcef7f7b2f91fc63ba4c'
+          actual_sha256 = hashlib.sha256(image).hexdigest()
+          if actual_sha256 != expected_sha256:
+              raise SystemExit(f'SHA-256 mismatch: {actual_sha256}')
+
+          png_signature = b'\x89PNG\r\n\x1a\n'
+          if not image.startswith(png_signature):
+              raise SystemExit('Payload is not a PNG')
+
+          width, height, bit_depth, colour_type = struct.unpack('>IIBB', image[16:26])
+          if (width, height, bit_depth, colour_type) != (900, 300, 8, 2):
+              raise SystemExit(
+                  f'Unexpected PNG metadata: {(width, height, bit_depth, colour_type)}'
+              )
+
+          target = Path('assets/profile-header-rgb-v4.png')
+          target.write_bytes(image)
 
           readme_path = Path('README.md')
           readme = readme_path.read_text(encoding='utf-8')
           lines = readme.splitlines()
-          expected_alt = 'Talysson Oliveira — Full-stack product engineer in London'
-          replacement = f'![{expected_alt}](./assets/profile-header-rgb-v3.png)'
-
-          if not lines:
-              raise SystemExit('README is empty')
-          if 'profile-header' not in lines[0]:
-              raise SystemExit(f'Unexpected first README line: {lines[0]!r}')
+          alt = 'Talysson Oliveira — Full-stack product engineer in London'
+          replacement = f'![{alt}](./assets/profile-header-rgb-v4.png)'
+          if not lines or 'profile-header' not in lines[0]:
+              raise SystemExit('Unexpected README header line')
           lines[0] = replacement
           readme_path.write_text('\n'.join(lines) + '\n', encoding='utf-8')
+
+          shutil.rmtree(payload_dir)
+          print(
+              f'Published {target}: {width}x{height}, RGB, '
+              f'{len(image)} bytes, sha256={actual_sha256}'
+          )
           PY
 
-      - name: Commit converted asset
+      - name: Commit verified asset
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md assets/profile-header-rgb-v3.png
+          git add -A
           if git diff --cached --quiet; then
             echo "No changes required"
             exit 0
           fi
-          git commit -m "fix: publish RGB profile header"
+          git commit -m "fix: publish verified RGB profile header"
           git push origin HEAD:fix/profile-header-rgb-v3
