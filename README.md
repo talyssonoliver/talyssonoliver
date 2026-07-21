@@ -1,4 +1,4 @@
-![Talysson Oliveira — Full-stack product engineer in London](./assets/profile-header-rgb-v3.png)
+![Talysson Oliveira — Full-stack product engineer in London](./assets/profile-header-rgb-v4.png)
 
 <p align="center">
   <a href="https://leangency.com"><img src="https://img.shields.io/badge/Leangency-founder-111827?style=flat-square&logo=vercel&logoColor=white" alt="Leangency" /></a>
