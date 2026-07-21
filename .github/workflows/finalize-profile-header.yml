@@ -1,0 +1,51 @@
+name: Finalize profile header
+
+on:
+  push:
+    branches:
+      - fix/publish-real-header-png-final
+    paths:
+      - .github/workflows/finalize-profile-header.yml
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: fix/publish-real-header-png-final
+
+      - name: Decode approved PNG and update README
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import base64
+
+          image_path = Path('assets/profile-header.png')
+          encoded = image_path.read_text(encoding='utf-8').strip()
+          image_path.write_bytes(base64.b64decode(encoded, validate=True))
+
+          readme_path = Path('README.md')
+          readme = readme_path.read_text(encoding='utf-8')
+          readme = readme.replace(
+              './assets/profile-header-aurora-v2.svg',
+              './assets/profile-header.png',
+          )
+          readme_path.write_text(readme, encoding='utf-8')
+
+          Path('.github/workflows/finalize-profile-header.yml').unlink()
+          PY
+
+      - name: Commit finalized binary asset
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "fix: publish approved profile header PNG"
+          git push origin HEAD:fix/publish-real-header-png-final
