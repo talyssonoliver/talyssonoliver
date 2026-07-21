@@ -1,50 +1,96 @@
 <svg width="1200" height="320" viewBox="0 0 1200 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Talysson Oliveira — Full-stack product engineer</title>
-  <desc id="desc">A dark blue and violet profile banner with Talysson Oliveira's name and the phrase software that still makes sense after the next ten features.</desc>
+  <desc id="desc">Aurora-inspired blue and violet profile banner with product engineering positioning.</desc>
   <defs>
-    <linearGradient id="bg" x1="40" y1="0" x2="1160" y2="320" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0B1220"/>
-      <stop offset="0.48" stop-color="#11182B"/>
-      <stop offset="1" stop-color="#171126"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#020614"/>
+      <stop offset="0.48" stop-color="#050925"/>
+      <stop offset="1" stop-color="#07122B"/>
     </linearGradient>
-    <linearGradient id="accent" x1="180" y1="250" x2="1010" y2="80" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#38BDF8"/>
-      <stop offset="0.52" stop-color="#6366F1"/>
-      <stop offset="1" stop-color="#A855F7"/>
+    <radialGradient id="leftGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(390 275) rotate(-12) scale(390 185)">
+      <stop stop-color="#32106D" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#32106D" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="rightGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(930 155) rotate(90) scale(235 345)">
+      <stop stop-color="#071D65" stop-opacity="0.72"/>
+      <stop offset="0.58" stop-color="#101257" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#101257" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="auroraA" x1="485" y1="292" x2="995" y2="-28" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#711BFF"/>
+      <stop offset="0.28" stop-color="#E440FF"/>
+      <stop offset="0.52" stop-color="#4A49FF"/>
+      <stop offset="0.76" stop-color="#16B8FF"/>
+      <stop offset="1" stop-color="#197BFF"/>
     </linearGradient>
-    <radialGradient id="glowBlue" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(180 60) rotate(38) scale(330 220)">
-      <stop stop-color="#38BDF8" stop-opacity="0.22"/>
-      <stop offset="1" stop-color="#38BDF8" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="glowViolet" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1040 270) rotate(-145) scale(390 230)">
-      <stop stop-color="#A855F7" stop-opacity="0.2"/>
-      <stop offset="1" stop-color="#A855F7" stop-opacity="0"/>
-    </radialGradient>
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M40 0H0V40" stroke="#FFFFFF" stroke-opacity="0.055"/>
-    </pattern>
-    <filter id="blur" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="28"/>
+    <linearGradient id="auroraB" x1="532" y1="340" x2="1110" y2="-15" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#251071"/>
+      <stop offset="0.22" stop-color="#8F24FF"/>
+      <stop offset="0.52" stop-color="#1848EF"/>
+      <stop offset="0.8" stop-color="#17C7FF"/>
+      <stop offset="1" stop-color="#1A64FF"/>
+    </linearGradient>
+    <linearGradient id="auroraC" x1="615" y1="330" x2="1200" y2="20" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#160944"/>
+      <stop offset="0.2" stop-color="#5521D9"/>
+      <stop offset="0.52" stop-color="#1736AA"/>
+      <stop offset="0.8" stop-color="#0A74E7"/>
+      <stop offset="1" stop-color="#00B9FF"/>
+    </linearGradient>
+    <linearGradient id="role" x1="42" y1="0" x2="425" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#49D0FF"/>
+      <stop offset="0.52" stop-color="#5C79FF"/>
+      <stop offset="1" stop-color="#A763FF"/>
+    </linearGradient>
+    <linearGradient id="pill" x1="42" y1="0" x2="174" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4EDCFF"/>
+      <stop offset="1" stop-color="#9B5CFF"/>
+    </linearGradient>
+    <filter id="glow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="11" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <clipPath id="round"><rect width="1200" height="320" rx="28"/></clipPath>
   </defs>
 
-  <rect width="1200" height="320" rx="28" fill="url(#bg)"/>
-  <rect width="1200" height="320" rx="28" fill="url(#grid)"/>
-  <rect width="1200" height="320" rx="28" fill="url(#glowBlue)"/>
-  <rect width="1200" height="320" rx="28" fill="url(#glowViolet)"/>
+  <g clip-path="url(#round)">
+    <rect width="1200" height="320" fill="url(#bg)"/>
+    <rect width="1200" height="320" fill="url(#leftGlow)"/>
+    <rect width="1200" height="320" fill="url(#rightGlow)"/>
 
-  <circle cx="1030" cy="74" r="82" fill="#6366F1" fill-opacity="0.12" filter="url(#blur)"/>
-  <circle cx="1130" cy="226" r="96" fill="#A855F7" fill-opacity="0.11" filter="url(#blur)"/>
+    <ellipse cx="1045" cy="155" rx="260" ry="170" fill="#061039" fill-opacity="0.54"/>
+    <ellipse cx="1032" cy="158" rx="190" ry="126" fill="#020719" fill-opacity="0.985"/>
 
-  <path d="M760 264C866 217 907 129 1018 101C1067 88 1116 91 1160 107" stroke="url(#accent)" stroke-width="10" stroke-linecap="round" stroke-opacity="0.95"/>
-  <path d="M794 284C888 251 951 190 1040 167C1084 156 1124 158 1168 174" stroke="url(#accent)" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4"/>
+    <path d="M530 339C589 298 616 263 606 226C594 185 530 176 522 125C514 76 574 22 660 -24" stroke="#8F2BFF" stroke-opacity="0.28" stroke-width="86" stroke-linecap="round" filter="url(#soft)"/>
+    <path d="M520 338C598 295 637 258 627 215C617 170 553 158 552 111C551 63 608 19 691 -24" stroke="url(#auroraA)" stroke-width="44" stroke-linecap="round" filter="url(#glow)"/>
+    <path d="M583 348C663 297 690 252 676 210C661 163 604 143 616 91C626 48 687 12 774 -21" stroke="url(#auroraB)" stroke-width="31" stroke-linecap="round" filter="url(#glow)"/>
+    <path d="M656 344C736 290 766 242 749 198C732 153 682 125 709 76C732 36 798 6 883 -17" stroke="url(#auroraC)" stroke-width="25" stroke-linecap="round" filter="url(#glow)"/>
+    <path d="M730 340C815 285 848 236 830 188C815 146 781 113 816 70C848 31 920 8 1011 -3" stroke="#1769F5" stroke-width="18" stroke-linecap="round" opacity="0.9"/>
+    <path d="M794 336C886 283 931 231 919 181C909 139 884 102 927 66C971 29 1051 16 1154 25" stroke="#0D3CA9" stroke-width="24" stroke-linecap="round" opacity="0.72"/>
+    <path d="M842 326C942 278 1000 224 996 170C993 131 979 96 1029 70C1076 45 1140 44 1217 62" stroke="#09286D" stroke-width="35" stroke-linecap="round" opacity="0.64"/>
 
-  <rect x="72" y="58" width="116" height="30" rx="15" fill="#FFFFFF" fill-opacity="0.08" stroke="#FFFFFF" stroke-opacity="0.12"/>
-  <text x="130" y="78" text-anchor="middle" fill="#C9D1D9" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="600" letter-spacing="1.6">LONDON · UK</text>
+    <rect x="42" y="39" width="132" height="29" rx="14.5" fill="#050A1A" fill-opacity="0.78" stroke="url(#pill)" stroke-width="1.4"/>
+    <text x="108" y="59" text-anchor="middle" fill="#F6F8FF" font-family="Inter, Arial, sans-serif" font-size="12.5" font-weight="600" letter-spacing="3.1">LONDON · UK</text>
 
-  <text x="72" y="154" fill="#F8FAFC" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="58" font-weight="720" letter-spacing="-1.8">Talysson Oliveira</text>
-  <text x="74" y="198" fill="#CBD5E1" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="24" font-weight="520">Full-stack product engineer</text>
-  <text x="74" y="244" fill="#94A3B8" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="18" font-weight="420">Software that still makes sense after the next ten features.</text>
+    <text x="42" y="153" fill="#F7F7F3" font-family="Georgia, 'Times New Roman', serif" font-size="54" font-weight="500" letter-spacing="-1.8">Talysson Oliveira</text>
+    <text x="43" y="204" fill="url(#role)" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="650" letter-spacing="-0.7">Full-stack product engineer</text>
+    <text x="43" y="247" fill="#D2D6E1" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="400">Software that still makes sense after the next ten features.</text>
 
-  <rect x="72" y="274" width="286" height="3" rx="1.5" fill="url(#accent)"/>
+    <g transform="translate(790 0)">
+      <text x="0" y="145" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="800" letter-spacing="2.4">PRODUCT ENGINEERING</text>
+      <text x="0" y="192" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="450">strategy</text>
+      <text x="100" y="192" fill="#6D74FF" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="500">→</text>
+      <text x="137" y="192" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="450">systems</text>
+      <text x="232" y="192" fill="#6D74FF" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="500">→</text>
+      <text x="269" y="192" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="450">delivery</text>
+      <text x="0" y="231" fill="#C7CBD8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400">AI-native products</text>
+      <circle cx="132" cy="226" r="2.2" fill="#39BFFF"/>
+      <text x="143" y="231" fill="#C7CBD8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400">TypeScript</text>
+      <circle cx="226" cy="226" r="2.2" fill="#7C5CFF"/>
+      <text x="237" y="231" fill="#C7CBD8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400">architecture</text>
+    </g>
+  </g>
 </svg>
