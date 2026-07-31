@@ -13,7 +13,7 @@
 
 I’m a Full-Stack / Product Engineer based in London and the founder of [Leangency](https://leangency.com).
 
-I like taking a product from the awkward early stage—when the requirements are still fuzzy and the workflows live in people’s heads—and turning it into software that is clear, testable and useful. Most of my work sits between **product engineering**, **full-stack TypeScript** and **workflow automation**.
+I like taking a product from the awkward early stage, when the requirements are still fuzzy and the workflows live in people’s heads, and turning it into software that is clear, testable and useful. Most of my work sits between **product engineering**, **full-stack TypeScript** and **workflow automation**.
 
 Right now I’m building **Aurora**, an AI-assisted CRM named after my daughter, while finishing my BEng in Software Engineering. I’m looking for a Full-Stack or Product Engineer role where I can own problems end to end: understanding the user, shaping the system and shipping the result.
 
@@ -44,7 +44,7 @@ The repository is still named IntelliFlow CRM while the rebrand is completed.
 
 **Making agency work understandable to the client.**
 
-A customer portal for discovery, journeys, scope approval, project communication, payments and delivery. The product is designed around the decisions clients need to make—not internal project-management jargon.
+A customer portal for discovery, journeys, scope approval, project communication, payments and delivery. The product is designed around the decisions clients need to make, not internal project-management jargon.
 
 `TypeScript` `Next.js 16` `Supabase` `Sanity` `Stripe` `React Flow` `Vitest`
 
@@ -89,7 +89,7 @@ A Python system coordinating seven specialised agents across technical planning,
 - **Start with the workflow.** A clean domain model usually begins with understanding what people actually do, where they hesitate and what they repeat.
 - **Keep business rules away from frameworks.** Databases, queues and AI providers are replaceable; the behaviour of the product is not.
 - **Test the promise, not the implementation.** Unit tests protect rules, integration tests protect boundaries and end-to-end tests protect the journeys that matter.
-- **Make architecture visible.** Boundaries should exist in the repository structure, dependency rules and CI—not only in diagrams.
+- **Make architecture visible.** Boundaries should exist in the repository structure, dependency rules and CI, not only in diagrams.
 - **AI has to earn its place.** I use it when it can extract, classify, recommend or remove a real step from someone’s work.
 
 ---
