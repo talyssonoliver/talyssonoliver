@@ -48,7 +48,7 @@ A customer portal for discovery, journeys, scope approval, project communication
 
 `TypeScript` `Next.js 16` `Supabase` `Sanity` `Stripe` `React Flow` `Vitest`
 
-Private repo — powers [leangency.com](https://leangency.com)
+Private repo — the multi-tenant client portal behind Leangency, live in production
 
 </td>
 </tr>
@@ -63,7 +63,7 @@ The system discovers leads, checks their web presence, collects evidence, runs s
 
 `TypeScript` `Next.js` `Prisma` `BullMQ` `Redis` `Playwright` `Sentry` `PostHog`
 
-Private repo — internal dogfood tool for [Leangency](https://leangency.com)
+Private repo — internal dogfood tool for Leangency
 
 </td>
 <td width="50%" valign="top">
