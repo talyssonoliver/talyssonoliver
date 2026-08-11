@@ -1,7 +1,6 @@
 ![Talysson Oliveira: Full-stack product engineer in London](./assets/profile-header-rgb-v4.png)
 
 <p align="center">
-  <a href="https://leangency.com"><img src="https://img.shields.io/badge/Leangency-founder-111827?style=flat-square&logo=vercel&logoColor=white" alt="Leangency" /></a>
   <a href="https://www.linkedin.com/in/talyssonoliveira/"><img src="https://img.shields.io/badge/LinkedIn-connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
   <a href="mailto:talyssonsoliveira@gmail.com"><img src="https://img.shields.io/badge/Email-say%20hello-6D5DFB?style=flat-square&logo=gmail&logoColor=white" alt="Email" /></a>
   <img src="https://img.shields.io/badge/Open%20to-Full--Stack%20%2F%20Product%20roles-16A34A?style=flat-square" alt="Open to Full-Stack and Product Engineer roles" />
@@ -11,7 +10,7 @@
 
 ## Hello
 
-I’m a Full-Stack / Product Engineer based in London and the founder of [Leangency](https://leangency.com).
+I’m a Full-Stack / Product Engineer based in London and the founder of Leangency.
 
 I like taking a product from the awkward early stage, when the requirements are still fuzzy and the workflows live in people’s heads, and turning it into software that is clear, testable and useful. Most of my work sits between **product engineering**, **full-stack TypeScript** and **workflow automation**.
 
@@ -48,7 +47,7 @@ A customer portal for discovery, journeys, scope approval, project communication
 
 `TypeScript` `Next.js 16` `Supabase` `Sanity` `Stripe` `React Flow` `Vitest`
 
-[Repository →](https://github.com/talyssonoliver/leangency-portal) · [Leangency →](https://leangency.com)
+*(Private repository — happy to walk through it live.)*
 
 </td>
 </tr>
@@ -63,7 +62,7 @@ The system discovers leads, checks their web presence, collects evidence, runs s
 
 `TypeScript` `Next.js` `Prisma` `BullMQ` `Redis` `Playwright` `Sentry` `PostHog`
 
-[Repository →](https://github.com/talyssonoliver/client-acquisition-leangency)
+*(Private repository — happy to walk through it live.)*
 
 </td>
 <td width="50%" valign="top">
@@ -121,6 +120,5 @@ A Python system coordinating seven specialised agents across technical planning,
 <p align="center">
   <strong>Have a role, product problem or interesting system to discuss?</strong><br />
   <a href="mailto:talyssonsoliveira@gmail.com">Email me</a> ·
-  <a href="https://www.linkedin.com/in/talyssonoliveira/">LinkedIn</a> ·
-  <a href="https://leangency.com">Leangency</a>
+  <a href="https://www.linkedin.com/in/talyssonoliveira/">LinkedIn</a>
 </p>
