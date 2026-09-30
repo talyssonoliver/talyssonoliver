@@ -48,7 +48,7 @@ A customer portal for discovery, journeys, scope approval, project communication
 
 `TypeScript` `Next.js 16` `Supabase` `Sanity` `Stripe` `React Flow` `Vitest`
 
-[Repository →](https://github.com/talyssonoliver/leangency-portal) · [Leangency →](https://leangency.com)
+[Case study →](https://taly.dev/case-study-leangency.html) · [Leangency →](https://leangency.com) · Private repository
 
 </td>
 </tr>
@@ -63,7 +63,7 @@ The system discovers leads, checks their web presence, collects evidence, runs s
 
 `TypeScript` `Next.js` `Prisma` `BullMQ` `Redis` `Playwright` `Sentry` `PostHog`
 
-[Repository →](https://github.com/talyssonoliver/client-acquisition-leangency)
+[Case study →](https://taly.dev/case-study-coa.html) · Private repository
 
 </td>
 <td width="50%" valign="top">
