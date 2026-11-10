@@ -2,6 +2,7 @@
 
 <p align="center">
   <a href="https://leangency.com"><img src="https://img.shields.io/badge/Leangency-founder-111827?style=flat-square&logo=vercel&logoColor=white" alt="Leangency" /></a>
+  <a href="https://taly.dev"><img src="https://img.shields.io/badge/Portfolio-taly.dev-0F766E?style=flat-square" alt="Portfolio: taly.dev" /></a>
   <a href="https://www.linkedin.com/in/talyssonoliveira/"><img src="https://img.shields.io/badge/LinkedIn-connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
   <a href="mailto:talyssonsoliveira@gmail.com"><img src="https://img.shields.io/badge/Email-say%20hello-6D5DFB?style=flat-square&logo=gmail&logoColor=white" alt="Email" /></a>
   <img src="https://img.shields.io/badge/Open%20to-Full--Stack%20%2F%20Product%20roles-16A34A?style=flat-square" alt="Open to Full-Stack and Product Engineer roles" />
@@ -76,7 +77,7 @@ A Python system coordinating seven specialised agents across technical planning,
 
 `Python` `LangGraph` `CrewAI` `LangChain` `ChromaDB` `Pytest`
 
-[Repository →](https://github.com/talyssonoliver/sota)
+Private repository
 
 </td>
 </tr>
@@ -122,5 +123,6 @@ A Python system coordinating seven specialised agents across technical planning,
   <strong>Have a role, product problem or interesting system to discuss?</strong><br />
   <a href="mailto:talyssonsoliveira@gmail.com">Email me</a> ·
   <a href="https://www.linkedin.com/in/talyssonoliveira/">LinkedIn</a> ·
+  <a href="https://taly.dev">taly.dev</a> ·
   <a href="https://leangency.com">Leangency</a>
 </p>
